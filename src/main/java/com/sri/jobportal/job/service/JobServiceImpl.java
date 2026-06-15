@@ -115,7 +115,20 @@ public class JobServiceImpl implements JobService {
 		
 	}
 	
-	
+	@Override
+	public List<JobResponseDTO> searchJobs(
+	        String title) {
+
+	    List<JobEntity> jobs =
+	            jobRepository
+	                    .findByTitleContainingIgnoreCase(
+	                            title);
+
+	    return jobs.stream()
+	            .map(this::mapToResponse)
+	            .toList();
+	}
+  	
 	private JobResponseDTO mapToResponse(JobEntity job) {
 		   JobResponseDTO response =
 		            new JobResponseDTO();
