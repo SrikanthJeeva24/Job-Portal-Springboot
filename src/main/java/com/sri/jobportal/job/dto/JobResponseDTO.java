@@ -21,7 +21,7 @@ public class JobResponseDTO {
 	private String companyName;
 	
 	private String skillsRequired;
-
+    
 	private LocalDateTime createdAt;
 	
 }
